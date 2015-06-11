@@ -92,30 +92,30 @@ public class Azan {
                     st = st + tdif;
                     if (w == 1) {
                         if (Math.Abs(X) < 1) {
-                            t[1] = st;
+                            t[1] = st; // subuh
                         }
                         z = (double)((90.0 + 5.0 / 6.0) * rad);
                     } else if (w == 2) {
-                        t[2] = st;
+                        t[2] = st; // terbit
                         a = 18;
                         z = (double)((90.0 + 5.0 / 6.0) * rad);
                     } else if (w == 3) {
-                        t[5] = (double)(st + 2.0 / 60.0);
+                        t[5] = (double)(st + 2.0 / 60.0); // maghrib
                         z = (double)(108.0 * rad);
                     } else if (w == 4) {
                         if (Math.Abs(X) < 1) {
-                            t[6] = st;
+                            t[6] = st; // isya
                         }
                         a = 12;
                     } else if (w == 5) {
-                        t[3] = (double)(st + 2.0 / 60.0);
+                        t[3] = (double)(st + 2.0 / 60.0); // dhuhur
                         zd = dek - phi;
                         if (zd < 0.0) {
                             zd = Math.Abs(zd);
                         }
                         a = 15;
                     } else {
-                        t[4] = st;
+                        t[4] = st; // ashar
                     }
                 }
                 Console.Write("{0}\t", k+1);
