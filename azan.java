@@ -1,5 +1,23 @@
 public class Azan
 {
+
+    /*
+    # azan.go
+    # Anda boleh menggunakan dan menyebarkan file ini dengan menyebutkan sumbernya:
+    # Nara Sumber awal:
+    # Dr. T. Djamaluddin
+    # Lembaga Penerbangan dan Antariksa Nasional (LAPAN) Bandung
+    # Phone 022-6012602. Fax 022-6014998
+    # e-mail: t_djamal@lapan.go.id  t_djamal@hotmail.com
+    # Porting ke Perl:
+    # Wastono ST
+    # Jl Taman Cilandak Rt:001 Rw:04 No.4 Jakarta 12430
+    # Phone 021-75909268. was.tono@gmail.com
+    # Porting ke java:
+    # Wicaksono Trihatmaja
+    # trihatmaja@gmail.com
+    */
+
 	static int[] dat = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 	static String[] datname = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
 	static double[] t = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
@@ -12,27 +30,27 @@ public class Azan
 	{
         double latitude = -6.193781;
         double longitude = 106.795906;
-        double timezone = -7.0;
+        double timezone = +7.0;
         String city = "Jakarta";
 		AzanSchedule(latitude, longitude, timezone, city);
     }
 	
 	public static void AzanSchedule (double latitude, double longitude, double timezone, String city) 
 	{
-	    // System.out.printf("azan schedule untuk wilayah %s\n", city);
-	    // if (timezone >0) 
-	    // {
-	    	// System.out.printf("gmt+%s latitude=%s longitude=%s\n", string.valueof(timezone), string.valueof(latitude), string.valueof(longitude));   
-	    // } else {
-			// System.out.printf("gmt%s latitude=%s longitude=%s\n", string.valueof(timezone), string.valueof(latitude), string.valueof(longitude));
-	    // }
+	    System.out.printf("azan schedule untuk wilayah %s\n", city);
+	    if (timezone >0) 
+	    {
+	    	System.out.printf("gmt+%s latitude=%s longitude=%s\n", string.valueof(timezone), string.valueof(latitude), string.valueof(longitude));   
+	    } else {
+			System.out.printf("gmt%s latitude=%s longitude=%s\n", string.valueof(timezone), string.valueof(latitude), string.valueof(longitude));
+	    }
         lamd = (double)(longitude/15.0);
         phi = (double) (latitude*rad);
         tdif = (double) (timezone - lamd);
         int n = 0;
         for(int x = 0; x < 12; x = x+1) {
-			// System.out.printf("\n%s\n", datname[x]);
-            // System.out.printf("Tanggal\tSubuh\tTerbit\tDhuhur\tAshar\tMaghrib\tIsya\n");
+			System.out.printf("\n%s\n", datname[x]);
+            System.out.printf("Tanggal\tSubuh\tTerbit\tDhuhur\tAshar\tMaghrib\tIsya\n");
             for(int k = 0; k< dat[x]; k = k +1) {
 				n = n + 1;
                 int a = 6;
@@ -96,16 +114,16 @@ public class Azan
                         t[4] = st;
                     }
                 }
-    
+                System.out.printf("%d\t",k+1)    
                 for (int j = 1; j < 7; j++) {
                     int th = (int) (t[j]);
                     int tm = (int) ((t[j] - th) * 60);
-                    // if(tm < 10) {
-                        // System.out.printf("%d:0%d\t",th,tm);
-                    // } else {
-                        // System.out.printf("%d:%d\t",th,tm);
-                    // }
-                    // if (j == 6) {System.out.printf("\n");}
+                    if(tm < 10) {
+                        System.out.printf("%d:0%d\t",th,tm);
+                    } else {
+                        System.out.printf("%d:%d\t",th,tm);
+                    }
+                    if (j == 6) {System.out.printf("\n");}
                 }
                 if (n == 59) {
                     if (k == 27) {
